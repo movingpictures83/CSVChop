@@ -1,0 +1,2 @@
+Prefix plugins/CSVChop/example
+Plugin CSVChop inputfile parameters.chop.txt outputfile chopped.csv
