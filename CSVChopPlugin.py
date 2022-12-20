@@ -20,6 +20,10 @@ class CSVChopPlugin:
          self.end = int(parameters['end'])
       else:
          self.end = len(self.lines)
+      if ('keepheader' in parameters):
+         self.keepheader = parameters['keepheader']
+      else:
+         self.keepheader = "False"
 
    def run(self):
       pass
@@ -27,6 +31,8 @@ class CSVChopPlugin:
    def output(self, filename):
       filestuff2 = open(filename, 'w')
       
+      if (self.keepheader == "True"):
+         filestuff2.write(self.lines[0])
       for i in range(self.start, self.end):
          filestuff2.write(self.lines[i])
          #if (i != len(self.lines)-1):
